@@ -53,7 +53,7 @@ class MainActivity : BaseActivity() {
                 chatAdapter?.notifyDataSetChanged()
 
 
-//                chatListView.smoothScrollToPosition(chatDataList.size -1) //10칸; : 마지막 9번
+                chatListView.smoothScrollToPosition(chatDataList.size -1) //10칸; : 마지막 9번
 
                 calculateStrikeAndBalls()
 
@@ -95,9 +95,14 @@ class MainActivity : BaseActivity() {
         chatDataList.add(ChatData("${strikeCount}S ${ballCount}B 입니다.", "computer"))
         chatAdapter?.notifyDataSetChanged()
 
+        chatListView.smoothScrollToPosition(chatDataList.size -1) // 10칸 : 마지칸 9번
+
+
         if(strikeCount == 3) {
             chatDataList.add(ChatData("축하합니다! 정답입니다.","computer"))
             chatAdapter?.notifyDataSetChanged()
+
+            chatListView.smoothScrollToPosition(chatDataList.size -1) // 10칸 : 마지칸 9번
         }
     }
 
