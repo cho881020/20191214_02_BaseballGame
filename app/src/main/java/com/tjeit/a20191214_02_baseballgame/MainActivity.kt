@@ -38,13 +38,25 @@ class MainActivity : BaseActivity() {
 
     fun calculateStrikeAndBalls() {
 
+        val userInputValue = userInputNumEdt.text.toString().toInt()
+//        100의 자리 / 10의 자리 / 1의 자리를 따다가 배열에 저장. => ex.567   567/100 =5
+//        10의 자리 => 567 중 6 =>  567 /10 = 56  =>  56 % 10 = 6
+//        1의 자리 => 567 중 7  => 567나누기 10의 나머지.
+
+        val userInputNumArr = ArrayList<Int>()
+        userInputNumArr.add(userInputValue / 100)
+        userInputNumArr.add()
+        userInputNumArr.add(userInputValue % 10)
+
+
+
         var strikeCount = 0
         var ballCount = 0
 
 
         for (i in 0..2) {
             for (j in 0..2) {
-//                입력한 값 / 컴퓨터가 낸 문제의 자리수 비교. 
+//                입력한 값 / 컴퓨터가 낸 문제의 자리수 비교.
             }
         }
 
