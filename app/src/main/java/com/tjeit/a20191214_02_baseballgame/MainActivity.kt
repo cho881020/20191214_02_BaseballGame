@@ -13,7 +13,7 @@ class MainActivity : BaseActivity() {
     val computerNumArray = ArrayList<Int>()
     val chatDatatList = ArrayList<ChatData>()
 //    김미현의 전용 브런치입니다.
-    val chatAdapter:ChatingAdapters? =null
+    var chatAdapter:ChatingAdapters? =null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,8 +28,23 @@ class MainActivity : BaseActivity() {
         inputBtn.setOnClickListener {
             chatDatatList.add(ChatData(userInputNumEdt.text.toString(),"user"))
 
-            chatAdapter.notifyDataSetChanged()
+            chatAdapter?.notifyDataSetChanged()
+            calculateStrikeAndBalls()
         }
+    }
+
+    fun calculateStrikeAndBalls(){
+        var strikeCount=0
+        var ballCount=0
+
+        for (i in 0..2){
+            for (j in 0..2){
+//                입력한 값과 컴퓨터가 낸 문제의 자리수 비교.
+            }
+        }
+
+        chatDatatList.add(ChatData("${strikeCount}S ${ballCount}B 입니다","computer"))
+        chatAdapter?.notifyDataSetChanged()
     }
 
     override fun setValues() {

@@ -1,6 +1,7 @@
 package com.tjeit.a20191214_02_baseballgame.adapters
 
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,14 @@ class ChatingAdapters(context : Context, resId:Int , list: ArrayList<ChatData>):
         val contextTxt = row.findViewById<TextView>(R.id.contentTxt)
 
         contextTxt.text=data.content.toString()
+
+        if(data.writer == "user"){
+//            메시지를 오른쪽에 붙여야함. =>Gravity : right로 설정.
+            contextTxt.gravity = Gravity.RIGHT
+        }else{
+            contextTxt.gravity=Gravity.LEFT
+
+        }
 
         return row
     }
