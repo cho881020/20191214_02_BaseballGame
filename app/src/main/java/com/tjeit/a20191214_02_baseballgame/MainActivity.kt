@@ -27,11 +27,23 @@ class MainActivity : BaseActivity() {
         inputBtn.setOnClickListener {
             chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
             chatAdapter?.notifyDataSetChanged()
+
+            calculateStrikeAndBalls()
         }
     }
 
     fun calculateStrikeAndBalls() {
-        chatDataList.add(ChatData("?S", "computer"))
+
+        var strikeCount = 0
+        var ballCount = 0
+
+        for ( i in 0..2) {
+            for (j i 0..2) {
+//                입력한 값과 / 컴퓨터가 낸 문재의 자라수 비교
+            }
+        }
+
+        chatDataList.add(ChatData("${strikeCount}S ${ballCount}B 입니다.", "computer"))
         chatAdapter?.notifyDataSetChanged()
     }
 
