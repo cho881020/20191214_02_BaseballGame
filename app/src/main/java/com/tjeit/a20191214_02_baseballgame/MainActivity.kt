@@ -8,6 +8,8 @@ class MainActivity : BaseActivity() {
 //    문제로 나온 숫자를 담기 위한 배열
     val computerNumArray = ArrayList<Int>()
 
+    // 노혜진 전용 branch
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
