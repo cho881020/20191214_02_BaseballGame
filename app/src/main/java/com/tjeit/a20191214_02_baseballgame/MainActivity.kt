@@ -32,7 +32,7 @@ class MainActivity : BaseActivity() {
     }
 
 
-
+//
     fun calculate(){
 
         val userInputValue = userInputNumEdt.text.toString().toInt()
