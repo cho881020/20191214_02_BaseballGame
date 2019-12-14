@@ -30,7 +30,17 @@ class MainActivity : BaseActivity() {
             chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
 
             chatAdapter?.notifyDataSetChanged()
+
+            calculateStrikeAndBalls()
+
         }
+
+    }
+
+    fun calculateStrikeAndBalls() {
+
+        chatDataList.add(ChatData("?S ?B 입니다.", "computer"))
+        chatAdapter?.notifyDataSetChanged()
 
     }
 
