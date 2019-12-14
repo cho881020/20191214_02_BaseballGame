@@ -3,7 +3,9 @@ package com.tjeit.a20191214_02_baseballgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.tjeit.a20191214_02_baseballgame.adpaters.ChatingAdapter
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
