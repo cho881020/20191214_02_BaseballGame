@@ -34,6 +34,14 @@ class MainActivity : BaseActivity() {
     }
 
     fun calculateStrikeAndBalls(){
+        val userInputValue = userInputNumEdt.text.toString().toInt()
+//        각 자리수 따다 배열에 저장.
+        val userInputNumArr = ArrayList<Int>()
+        userInputNumArr.add(userInputValue/100)
+        userInputNumArr.add(userInputValue/10%10)
+        userInputNumArr.add(userInputValue%10)
+
+
         var strikeCount=0
         var ballCount=0
 
