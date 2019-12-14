@@ -91,6 +91,10 @@ class MainActivity : BaseActivity() {
         }
         chatDataList.add(ChatData("computer: ${strikeCount}S ${ballCount}B입니다.","computer"))
         chatAdapter?.notifyDataSetChanged()
+
+        if (strikeCount == 3) {
+            chatDataList.add(ChatData("computer: 축하합니다! 정답입니다.", "computer"))
+        }
     }
 
 }
