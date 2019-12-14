@@ -1,5 +1,7 @@
 package com.tjeit.a20191214_02_baseballgame
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -26,16 +28,32 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
         inputBtn.setOnClickListener {
-//            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
-//            chatAdapter?.notifyDataSetChanged()
-//
-//            calculateStrikeAndBalls()
 
             if(userInputNumEdt.text.length != 3) {
-                Toast.makeText(mContext, "잘못된 입력입니다. 세자리 숫자를 입력해 주세요", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(mContext, "잘못된 입력입니다. 세자리 숫자를 입력해 주세요", Toast.LENGTH_SHORT).show()
+
+                val adb = AlertDialog.Builder(mContext)
+
+                adb.setTitle("입력 오류 안내")
+//                adb.setMessage("정말 이 데이터를 삭제하시겠습니까?")
+                adb.setMessage("잘못된 입력입니다. 세자리 숫자를 입력해 주세요.")
+                adb.setPositiveButton("확인", DialogInterface.OnClickListener {dialog, which ->
+                    Toast.makeText(mContext, "확인버튼 누름", Toast.LENGTH_SHORT).show()
+                })
+//                adb.setNegativeButton("취소", DialogInterface.OnClickListener {dialog, which ->
+//                    Toast.makeText(mContext, "취소버튼 누름", Toast.LENGTH_SHORT).show()
+//                })
+                adb.setNegativeButton("취소", null)
+
+                adb.show()
+
+
             } else {
                 chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
                 chatAdapter?.notifyDataSetChanged()
+
+
+//                chatListView.smoothScrollToPosition(chatDataList.size -1) //10칸; : 마지막 9번
 
                 calculateStrikeAndBalls()
 
