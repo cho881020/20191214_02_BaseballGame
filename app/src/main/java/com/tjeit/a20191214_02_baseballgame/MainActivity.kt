@@ -39,7 +39,16 @@ class MainActivity : BaseActivity() {
 
     fun calculateStrikeAndBalls() {
 
-        chatDataList.add(ChatData("?S ?B 입니다.", "computer"))
+        var strikeCount = 0
+        var ballCount = 0
+
+        for (i in 0..2) {
+            for (j in 0..2) {
+//                입력한 값과 / 컴퓨터가 낸 문제의 자리수 비교.
+            }
+        }
+
+        chatDataList.add(ChatData("${strikeCount}S ${ballCount}B 입니다.", "computer"))
         chatAdapter?.notifyDataSetChanged()
 
     }
