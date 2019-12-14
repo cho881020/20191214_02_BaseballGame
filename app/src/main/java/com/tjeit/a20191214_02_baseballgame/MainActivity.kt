@@ -3,6 +3,7 @@ package com.tjeit.a20191214_02_baseballgame
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import com.tjeit.a20191214_02_baseballgame.adapters.ChattingAdapter
@@ -55,10 +56,11 @@ class MainActivity : BaseActivity() {
 
                 chatListView.smoothScrollToPosition(chatDataList.size -1) //10칸; : 마지막 9번
 
-                calculateStrikeAndBalls()
+                Handler().postDelayed({
 
-                //Hander
-            }
+                    calculateStrikeAndBalls()
+
+                }, 800)            }
         }
     }
 
