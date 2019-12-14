@@ -24,8 +24,10 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
         inputBtn.setOnClickListener {
-            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+            chatDataList.add(ChatData("user: "+userInputNumEdt.text.toString(), "user"))
             chatAdapter?.notifyDataSetChanged()
+
+            calculateStrikeAndBalls()
         }
     }
 
@@ -60,6 +62,19 @@ class MainActivity : BaseActivity() {
         for (num in computerNumArray) {
             Log.d("log]출제된 숫자","${num}")
         }
+    }
+
+    fun calculateStrikeAndBalls() {
+        var strikeCount = 0
+        var ballCount = 0
+
+        for (i in 0..2) {
+            for (j in 0..2) {
+//                입력한 값과 컴퓨터가 낸 문제의 자리수 비교.
+            }
+        }
+        chatDataList.add(ChatData("computer: ${strikeCount}S ${ballCount}B입니다.","computer"))
+        chatAdapter?.notifyDataSetChanged()
     }
 
 }
