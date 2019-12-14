@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
         for (i in 0..2) {
 
             while (true) {
-                val randomNum = Math.random() * 9 +1).toInt()   // 0 <= 랜덤값*9 < 1 <10
+                val randomNum = (Math.random() * 9 +1).toInt()   // 0 <= 랜덤값*9 < 1 <10
 
                 var isDuplicateOk = true
 
