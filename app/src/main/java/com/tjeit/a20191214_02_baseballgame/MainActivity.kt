@@ -48,6 +48,13 @@ class MainActivity : BaseActivity() {
         for (i in 0..2){
             for (j in 0..2){
 //                입력한 값과 컴퓨터가 낸 문제의 자리수 비교.
+                if(computerNumArray.get(j)==userInputNumArr.get(i)){
+                    if(i==j){
+                        strikeCount++
+                    }else{
+                        ballCount++
+                    }
+                }
             }
         }
 
