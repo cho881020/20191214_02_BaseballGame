@@ -8,7 +8,7 @@ class MainActivity : BaseActivity() {
 //    문제로 나온 숫자를 담기 위한 배열
     val computerNumArray = ArrayList<Int>()
 
-//    차순혁의 전용 브런치!
+//    차순혁의 전용 브런치!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
