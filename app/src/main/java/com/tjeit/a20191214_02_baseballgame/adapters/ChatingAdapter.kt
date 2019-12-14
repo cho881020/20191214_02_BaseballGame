@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.tjeit.a20191214_02_baseballgame.R
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 
@@ -20,6 +21,11 @@ class ChatingAdapter(context:Context, resId:Int, list:ArrayList<ChatData>) : Arr
             tempRow = inf.inflate(R.layout.chat_list_item, null)
         }
         var row = tempRow!!
+
+        val data = mList.get(position)
+        val contentTxt = row.findViewById<TextView>(R.id.contentTxt)
+        contentTxt.text = data.content
+
         return row
     }
 

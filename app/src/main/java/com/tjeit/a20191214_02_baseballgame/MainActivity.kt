@@ -2,6 +2,7 @@ package com.tjeit.a20191214_02_baseballgame
 
 import android.os.Bundle
 import android.util.Log
+import com.tjeit.a20191214_02_baseballgame.adapters.ChatingAdapter
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -10,6 +11,7 @@ class MainActivity : BaseActivity() {
 //    문제로 나온 숫자를 담기 위한 배열
     val computerNumArray = ArrayList<Int>()
     val chatDataList = ArrayList<ChatData>()
+    var chatAdapter:ChatingAdapter? = null
 
 //    차순혁의 전용 브런치!!
 
@@ -23,11 +25,15 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
         inputBtn.setOnClickListener {
             chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+            chatAdapter?.notifyDataSetChanged()
         }
     }
 
     override fun setValues() {
         makeComputerNumberes()
+
+        chatAdapter = ChatingAdapter(mContext, R.layout.activity_main, chatDataList)
+        chatListView.adapter = chatAdapter
     }
 
     fun makeComputerNumberes() {
