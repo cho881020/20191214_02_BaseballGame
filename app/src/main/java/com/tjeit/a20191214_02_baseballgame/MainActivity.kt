@@ -1,5 +1,7 @@
 package com.tjeit.a20191214_02_baseballgame
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -28,6 +30,15 @@ class MainActivity : BaseActivity() {
         inputBtn.setOnClickListener {
             if (userInputNumEdt.text.length != 3) {
                 Toast.makeText(mContext,"잘못된 입력입니다. 세자리 숫자를 입력해주세요.",Toast.LENGTH_SHORT).show()
+//                Toast보다 더 강력한 경고창 얼럿다이얼로그
+                val adb = AlertDialog.Builder(mContext)
+                adb.setTitle("입력 오류 안내")
+                adb.setMessage("잘못된 입력입니다. 세자리 숫자를 입력해주세요.")
+                adb.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+                    Toast.makeText(mContext,"확인버튼 누름",Toast.LENGTH_SHORT).show()
+                })
+                adb.setNegativeButton("취소", null)
+                adb.show()
             } else {
                 chatDataList.add(ChatData("user: "+userInputNumEdt.text.toString(), "user"))
                 chatAdapter?.notifyDataSetChanged()
