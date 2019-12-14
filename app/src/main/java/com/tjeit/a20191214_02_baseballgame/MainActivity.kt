@@ -45,9 +45,8 @@ class MainActivity : BaseActivity() {
 
         val userInputNumArr = ArrayList<Int>()
         userInputNumArr.add(userInputValue / 100)
-        userInputNumArr.add()
+        userInputNumArr.add(userInputValue / 10 % 10)
         userInputNumArr.add(userInputValue % 10)
-
 
 
         var strikeCount = 0
@@ -57,6 +56,15 @@ class MainActivity : BaseActivity() {
         for (i in 0..2) {
             for (j in 0..2) {
 //                입력한 값 / 컴퓨터가 낸 문제의 자리수 비교.
+
+                if (computerNumArray.get(j) == userInputNumArr.get(i)) {
+                    if (i == j) {
+                        strikeCount++
+                    }
+                    else{
+                        ballCount++
+                    }
+                }
             }
         }
 
