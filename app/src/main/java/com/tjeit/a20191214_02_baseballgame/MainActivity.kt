@@ -2,11 +2,14 @@ package com.tjeit.a20191214_02_baseballgame
 
 import android.os.Bundle
 import android.util.Log
+import com.tjeit.a20191214_02_baseballgame.datas.ChatData
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
 //    문제로 나온 숫자를 담기 위한 배열
     val computerNumArray = ArrayList<Int>()
+    val chatDataList = ArrayList<ChatData>()
 
 //    차순혁의 전용 브런치!!
 
@@ -18,10 +21,13 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        makeComputerNumberes()
+        inputBtn.setOnClickListener {
+            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+        }
     }
 
     override fun setValues() {
+        makeComputerNumberes()
     }
 
     fun makeComputerNumberes() {
