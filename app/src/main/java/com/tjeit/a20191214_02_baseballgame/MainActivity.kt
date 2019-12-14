@@ -28,6 +28,7 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
         inputBtn.setOnClickListener {
+
             chatDataList.add(ChatData(userInputNumEdt.text.toString(),"user"))
 
             chatingAdapter?.notifyDataSetChanged()
@@ -42,6 +43,14 @@ class MainActivity : BaseActivity() {
         var strikeCount = 0
         var ballCount = 0
 
+        for (i in 0..2){
+
+            for (j in 0..2){
+
+
+            }
+
+        }
 
         chatDataList.add(ChatData("${strikeCount}S ${ballCount}B 입니다.", "computer"))
         chatingAdapter?.notifyDataSetChanged()
