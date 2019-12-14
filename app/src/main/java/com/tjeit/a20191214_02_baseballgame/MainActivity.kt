@@ -25,7 +25,7 @@ class MainActivity : BaseActivity() {
     override fun setValues() {
         makeComputerNumbers()
     }
-
+//
     fun makeComputerNumbers(){
         for( i in 0..2){
             while (true){
