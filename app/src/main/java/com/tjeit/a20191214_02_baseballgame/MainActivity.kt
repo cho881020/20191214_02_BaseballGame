@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
+        makeComputerNumbers()
     }
 
     fun makeComputerNumbers() {
