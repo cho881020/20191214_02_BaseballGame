@@ -2,6 +2,8 @@ package com.tjeit.a20191214_02_baseballgame
 
 import android.os.Bundle
 import android.util.Log
+import com.tjeit.a20191214_02_baseballgame.datas.ChatData
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -9,6 +11,7 @@ class MainActivity : BaseActivity() {
     val computerNumArray = ArrayList<Int>()
 
 //    김영호의 전용 브런치
+    val chatDataList = ArrayList<ChatData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,15 +22,18 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        inputBtn.setOnClickListener {
+            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+        }
     }
 
     override fun setValues() {
-
+        makeComputerNurmbers()
     }
 
-    fun makeComputerNumbers() {
+    fun makeComputerNurmbers() {
         for ( i in 0..2) {
-            Log.d("for문","${i}")
+            //Log.d("for문","${i}")
 
             while(true) {
 //                val randomNum = Math.random() // 1 <= 랜덤값 < 1

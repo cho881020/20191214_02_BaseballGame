@@ -18,12 +18,14 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/userInputNumEdt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"/>
 
         <Button
+            android:id="@+id/inputBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="입력" />
