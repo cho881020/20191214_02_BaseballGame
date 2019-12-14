@@ -113,8 +113,8 @@ class MainActivity : BaseActivity() {
 
         if (strikeCount == 3) {
             chatDataList.add(ChatData("computer: 축하합니다! 정답입니다.", "computer"))
+            chatAdapter?.notifyDataSetChanged()
             chatListView.smoothScrollToPosition(chatDataList.size-1)   // 10칸 : 마지막 칸 9번
         }
     }
-
 }
