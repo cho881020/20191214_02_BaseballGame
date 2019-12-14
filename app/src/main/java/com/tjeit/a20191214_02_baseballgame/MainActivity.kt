@@ -1,10 +1,12 @@
 package com.tjeit.a20191214_02_baseballgame
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.tjeit.a20191214_02_baseballgame.adapters.ChatingAdapters
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,14 +32,25 @@ class MainActivity : BaseActivity() {
         inputBtn.setOnClickListener {
             chatDatatList.add(ChatData(userInputNumEdt.text.toString(),"user"))
 
-            chatAdapter?.notifyDataSetChanged()
-            chatListView.smoothScrollToPosition(chatDatatList.size-1)
+
 
             if(userInputNumEdt.text.length !=3){
                 Toast.makeText(mContext,"잘못된 입력입니다. 세자리 숫자를 입력해 주세요",Toast.LENGTH_SHORT).show()
+                val adb = AlertDialog.Builder(mContext)
+
+                adb.setIcon(R.drawable.ic_launcher_background)
+                adb.setTitle("입력 오류 안내")
+                adb.setMessage("잘못된 입력입니다. 세 자리 숫자를 입력해 주세요.")
+                adb.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+                    Toast.makeText(mContext,"확인버튼 누름",Toast.LENGTH_SHORT).show()
+                })
+                adb.setNegativeButton("취소",null)
+                adb.show()
             }else{
                 Handler().postDelayed({
                     calculateStrikeAndBalls()
+                    chatAdapter?.notifyDataSetChanged()
+                    chatListView.smoothScrollToPosition(chatDatatList.size-1)
                 },500)
             }
 
