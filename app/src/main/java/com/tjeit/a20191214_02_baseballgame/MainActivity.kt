@@ -1,8 +1,12 @@
 package com.tjeit.a20191214_02_baseballgame
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.tjeit.a20191214_02_baseballgame.adapters.ChatingAdapter
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,12 +31,42 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
         inputBtn.setOnClickListener {
-            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
 
-            chatAdapter?.notifyDataSetChanged()
-            chatListView.smoothScrollToPosition(chatDataList.size - 1)
+            if(userInputNumEdt.text.length !=3 ){
+//                Toast.makeText(mContext,"잘못된 입력입니다. 세자리 숫자 입력해주세요",Toast.LENGTH_SHORT).show()
+                val adb = AlertDialog.Builder(mContext)
 
-            calculateStrikeAndBalls()
+//                예시
+//                adb.setTitle("삭제 확인")
+//                adb.setMessage("정말 이 데이터를 삭제하시겠습니까?")
+                adb.setTitle("입력오류안내")
+                adb.setMessage("잘못된 입력입니다. 세자리 숫자를 입력해주세요")
+                adb.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+                    Toast.makeText(mContext,"확인버튼누름",Toast.LENGTH_SHORT).show()
+                })
+                adb.setNegativeButton("취소", null )
+
+//                adb.setNegativeButton("취소", DialogInterface.OnClickListener { dialog, which ->
+//                    Toast.makeText(mContext,"취소버튼누름",Toast.LENGTH_SHORT).show()
+//                })
+
+                adb.show()
+            }
+
+            else{
+                chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+
+                chatAdapter?.notifyDataSetChanged()
+                chatListView.smoothScrollToPosition(chatDataList.size - 1)
+                Handler().postDelayed({
+
+                    calculateStrikeAndBalls()
+
+                }, 500)
+
+            }
+
+
 
         }
 
