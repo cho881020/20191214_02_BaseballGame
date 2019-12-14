@@ -29,6 +29,9 @@ class MainActivity : BaseActivity() {
             chatDatatList.add(ChatData(userInputNumEdt.text.toString(),"user"))
 
             chatAdapter?.notifyDataSetChanged()
+            chatListView.smoothScrollToPosition(chatDatatList.size-1)
+
+
             calculateStrikeAndBalls()
         }
     }
@@ -60,6 +63,13 @@ class MainActivity : BaseActivity() {
 
         chatDatatList.add(ChatData("${strikeCount}S ${ballCount}B 입니다","computer"))
         chatAdapter?.notifyDataSetChanged()
+        chatListView.smoothScrollToPosition(chatDatatList.size-1)
+
+        if (strikeCount ==3){
+            chatDatatList.add(ChatData("축하합니다 정답입니다.","computer"))
+            chatAdapter?.notifyDataSetChanged()
+            chatListView.smoothScrollToPosition(chatDatatList.size-1)
+        }
     }
 
     override fun setValues() {
