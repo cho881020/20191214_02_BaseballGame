@@ -28,15 +28,30 @@ class MainActivity : BaseActivity() {
     }
 
     fun makeComputerNumbers() {
-        for (i in 0...2) {
+        for (i in 0..2) {
 
-            while (ture) {
-                val randomNum = Math.random() * 9   // 0 <= 랜덤값*9 < 1
+            while (true) {
+                val randomNum = Math.random() * 9 +1).toInt()   // 0 <= 랜덤값*9 < 1 <10
+
+                var isDuplicateOk = true
+
+                for (num in computerNumArray) {
+                    if (num == randomNum) {
+                        isDuplicateOk =false
+                        break
+                    }
+                }
+                if (isDuplicateOk) {
+                    computerNumArray.add(randomNum)
+                    break
+                }
             }
         }
+
+        for (num in computerNumArray) {
+            Log.d("출제된 숫자", "${num}")
+        }
     }
-
-
 
 
 }
