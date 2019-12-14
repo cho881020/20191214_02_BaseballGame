@@ -5,6 +5,8 @@ import android.os.Bundle
 
 class MainActivity : BaseActivity() {
 
+    val computerNumArray = ArrayList<Int>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
