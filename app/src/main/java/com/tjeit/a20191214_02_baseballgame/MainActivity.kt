@@ -3,6 +3,8 @@ package com.tjeit.a20191214_02_baseballgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.tjeit.a20191214_02_baseballgame.datas.ChatData
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -10,6 +12,8 @@ class MainActivity : BaseActivity() {
     val computerNumArray = ArrayList<Int>()
 
 //    조경진의 전용 브런치입니다.
+
+    val chatDataList = ArrayList<ChatData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +23,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        inputBtn.setOnClickListener {
+            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+        }
 
     }
 
