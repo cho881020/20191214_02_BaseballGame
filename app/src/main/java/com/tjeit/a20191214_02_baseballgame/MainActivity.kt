@@ -2,6 +2,7 @@ package com.tjeit.a20191214_02_baseballgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class MainActivity : BaseActivity() {
 
@@ -22,7 +23,20 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        makeComputerNumbers()
 
     }
+
+    fun makeComputerNumbers() {
+        for (i in 0...2) {
+
+            while (ture) {
+                val randomNum = Math.random() * 9   // 0 <= 랜덤값*9 < 1
+            }
+        }
+    }
+
+
+
 
 }
