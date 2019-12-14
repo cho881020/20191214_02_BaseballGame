@@ -2,7 +2,9 @@ package com.tjeit.a20191214_02_baseballgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import com.tjeit.a20191214_02_baseballgame.adapters.ChatingAdapter
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,12 +29,23 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
         inputBtn.setOnClickListener {
-            chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
 
-            chatAdapter?.notifyDataSetChanged()
-            chatListView.smoothScrollToPosition(chatDataList.size -1) // 10칸 : 마지칸 9번
+            if (userInputNumEdt.text.length != 3) {
+                Toast.makeText(mContext, "잘못된 입력입니다. 세자리 숫자를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
 
-            calculateStrikeAndBalls()
+                chatAdapter?.notifyDataSetChanged()
+                chatListView.smoothScrollToPosition(chatDataList.size -1) // 10칸 : 마지칸 9번
+
+
+                Handler().postDelayed({
+
+                    calculateStrikeAndBalls()
+
+                }, 800)
+            }
 
         }
 
