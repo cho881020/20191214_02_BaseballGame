@@ -1,10 +1,12 @@
 package com.tjeit.a20191214_02_baseballgame.adapters
 
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.tjeit.a20191214_02_baseballgame.R
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 
@@ -25,6 +27,17 @@ class ChattingAdapter(context:Context, resId:Int, list:ArrayList<ChatData>) : Ar
         }
 
         val row = tempRow!!
+
+        val data = mList.get(position)
+        val contentTxt = row.findViewById<TextView>(R.id.contentTxt)
+
+        contentTxt.text = data.content
+
+        if(data.writer == "user") {
+            contentTxt.gravity = Gravity.RIGHT
+        } else {
+            contentTxt.gravity = Gravity.LEFT
+        }
 
         return row
     }

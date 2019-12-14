@@ -2,6 +2,7 @@ package com.tjeit.a20191214_02_baseballgame
 
 import android.os.Bundle
 import android.util.Log
+import com.tjeit.a20191214_02_baseballgame.adapters.ChattingAdapter
 import com.tjeit.a20191214_02_baseballgame.datas.ChatData
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -12,6 +13,7 @@ class MainActivity : BaseActivity() {
 
 //    김영호의 전용 브런치
     val chatDataList = ArrayList<ChatData>()
+    var chatAdapter:ChattingAdapter? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +26,21 @@ class MainActivity : BaseActivity() {
 
         inputBtn.setOnClickListener {
             chatDataList.add(ChatData(userInputNumEdt.text.toString(), "user"))
+            chatAdapter?.notifyDataSetChanged()
         }
+    }
+
+    fun calculateStrikeAndBalls() {
+        chatDataList.add(ChatData("?S", "computer"))
+        chatAdapter?.notifyDataSetChanged()
     }
 
     override fun setValues() {
         makeComputerNurmbers()
+
+        chatAdapter = ChattingAdapter(mContext, R.layout.chat_list_item, chatDataList)
+        chatListView.adapter = chatAdapter
+
     }
 
     fun makeComputerNurmbers() {
