@@ -38,7 +38,12 @@ class MainActivity : BaseActivity() {
     }
 
     fun calculateStrikeAndBall(){
-        chatDataList.add(ChatData("?S ?B 입니다.", "computer"))
+
+        var strikeCount = 0
+        var ballCount = 0
+
+
+        chatDataList.add(ChatData("${strikeCount}S ${ballCount}B 입니다.", "computer"))
         chatingAdapter?.notifyDataSetChanged()
     }
 
