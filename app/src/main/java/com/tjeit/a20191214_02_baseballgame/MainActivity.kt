@@ -107,8 +107,36 @@ class MainActivity : BaseActivity() {
     override fun setValues() {
         makeComputerNumbers()
 
+        chatDataList.add(ChatData("숫자 야구 게임에 오신걸 환영합니다.", "computer"));
+
         chatAdapter = ChatingAdapter(mContext, R.layout.chat_list_item, chatDataList)
         chatListView.adapter = chatAdapter
+
+
+        val handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+
+                chatDataList.add(ChatData("3자리 숫자를 입력해 제가 생각하는 숫자를 맞춰 주세요.", "computer"));
+                runOnUiThread {
+                    chatAdapter!!.notifyDataSetChanged()
+                }
+            }
+
+        }, 1500);
+
+
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+
+                chatDataList.add(ChatData("0은 사용되지 않았고, 중복된 숫자도 없습니다.", "computer"));
+                runOnUiThread {
+                    chatAdapter!!.notifyDataSetChanged()
+                }
+            }
+
+        }, 3000);
+
     }
 
     fun makeComputerNumbers() {
